@@ -1,25 +1,19 @@
 import './styles.css';
 // import '~material-design-icons/iconfont/material-icons.css'; /*для npm подключения*/
-console.log('Hello images');
+console.log('Hello HW13');
 import * as basicLightbox from 'basiclightbox';
-import './js/fetchImages';
+import fetchImages from './js/apiService';
+
 // import debounce from 'lodash.debounce';
 import refs from './js/refs';
+import axios from 'axios';
 
-// let valueSearch;
+refs.input.addEventListener('submit', onValueSearch);
 
-// refs.input.addEventListener('input', onValueSearch);
-// refs.input.addEventListener(
-//   'input',
-//   debounce(() => {
-//     fetchCountries(valueSearch);
-//   }, 500),
-// );
-
-// function onValueSearch(event) {
-//   valueSearch = event.currentTarget.value;
-//   if (valueSearch === '') {
-//     return refs.spinner.classList.add('is-hidden');
-//   }
-//   refs.spinner.classList.remove('is-hidden');
-// }
+function onValueSearch(e) {
+  e.preventDefault();
+  refs.spinner.classList.remove('is-hidden');
+  const value = e.target[0].value;
+  //   console.log('value', value);
+  fetchImages(value);
+}

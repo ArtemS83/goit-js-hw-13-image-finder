@@ -2,6 +2,9 @@ const refs = {
   input: document.querySelector('#search-form'),
   galleryList: document.querySelector('.gallery'),
   spinner: document.querySelector('.spinner-border'),
+  btnLoadMore: document.querySelector('.btn-primary'),
+  spinneBtn: document.querySelector('.spinner-border-sm'),
+  spanBtnLoadMore: document.querySelector('.loadSpan'),
 };
 
-export default { refs };
+export default refs;

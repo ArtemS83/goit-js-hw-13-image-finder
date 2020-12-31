@@ -16,11 +16,7 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   line-height: 1.5;
-
-  /* background-color: rgb(221, 216, 216);
-  background-image: url('./images/map.jpg');
-  background-repeat: no-repeat;
-  background-size: cover; */
+  background-color: rgb(150, 230, 233);
 }
 img {
   display: block;
@@ -44,17 +40,15 @@ img {
   font-style: normal;
 }
 .search-title {
+  margin-top: 30px;
+  margin-bottom: 30px;
   font-weight: 700;
   font-size: 26px;
   text-align: center;
 }
 
 .search-form {
-  /* width: 230px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  border-radius: 3px; */
+  margin-bottom: 25px;
 }
 .container {
   padding-left: 15px;
@@ -81,13 +75,24 @@ img {
 }
 .stats {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+
+  margin-top: 10px;
+}
+.stats p {
+  display: flex;
+}
+.material-icons {
+  margin-right: 6px;
+}
+.material-icons:hover,
+.material-icons:focus {
+  color: rgb(114, 226, 39);
 }
 .article-item {
   display: flex;
-  /* flex-direction: row; */
   justify-content: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 .gallery {
   display: grid;
@@ -99,11 +104,10 @@ img {
   max-width: calc(100vw - 80px);
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .gallery li {
-  /* height: 450px; */
   overflow: hidden;
 }
 
@@ -113,44 +117,16 @@ img {
   height: 200px;
   object-fit: cover;
 }
-
-/* .coutry-desc {
-  margin-right: 50px;
-}
-.coutry-desc span {
-  font-weight: 400;
-}
-.languages-item {
-  font-size: 24px;
-}
-.flag-image {
-  max-width: 300px;
-  max-height: 200px;
-}
-.country-title {
-  margin-top: 0;
-  text-align: center;
-  font-size: 32px;
-}
-.country-title__small {
-  max-width: 600px;
-  font-size: 24px;
-}
-
-
-
-.list-countries {
-  position: relative;
-  right: 20px;
-  margin: 0;
-}
-.languages-list {
-  margin: 0;
-}
-.country-title__small {
-  cursor: pointer;
-  margin: 0;
+.spinner-border,
+.btn {
+  display: block;
+  margin: 0 auto;
 }
 .is-hidden {
   display: none;
-}  */
+}
+.btn:hover,
+.btn:focus {
+  color: rgb(39, 18, 224);
+  background-color: rgb(114, 226, 39);
+}

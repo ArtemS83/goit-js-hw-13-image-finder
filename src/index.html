@@ -17,7 +17,7 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="search-title">What do you want? Maybe search photo?</h1>
+      <h1 class="search-title">Maybe do you want search photo?</h1>
       <form class="search-form" id="search-form">
         <input
           class="input_search"
@@ -27,10 +27,20 @@
           placeholder="Search images..."
         />
       </form>
+      <div class="spinner-border is-hidden" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <ul class="gallery"></ul>
 
-      <ul class="gallery">
-        <!-- Список <li> с карточками изображений -->
-      </ul>
+      <button class="btn btn-primary is-hidden" type="button" disabled>
+        <span
+          class="spinner-border spinner-border-sm is-hidden"
+          role="status"
+          aria-hidden="true"
+        ></span>
+        <!-- <span class="sr-only">Load more</span> -->
+        <span class="loadSpan">Load more</span>
+      </button>
     </div>
   </body>
 </html>
