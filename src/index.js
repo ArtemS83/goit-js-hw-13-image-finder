@@ -3,8 +3,8 @@ import './styles.css';
 console.log('Hello HW13');
 import * as basicLightbox from 'basiclightbox';
 import ImagesService from './js/apiService';
-
 import refs from './js/refs';
+import './js/arrowTop';
 import axios from 'axios';
 
 refs.input.addEventListener('submit', onValueSearch);
@@ -13,13 +13,15 @@ refs.btnLoadMore.addEventListener('click', onMoreSearch);
 function onValueSearch(e) {
   e.preventDefault();
   refs.galleryList.innerHTML = '';
-  refs.spinner.classList.remove('is-hidden');
+  refs.btnLoadMore.classList.remove('is-hidden');
   ImagesService.query = e.target[0].value.trim();
   ImagesService.resetPage();
   onMoreSearch();
 }
 function onMoreSearch() {
   ImagesService.fetchImages();
+  refs.spinneBtn.classList.remove('is-hidden'); //спинер на кнопке 'Load more'
+  refs.spanBtnLoadMore.classList.add('sr-only');
 }
 //==============Fn bad============//
 // import fetchImages from './js/apiService'; //для ==== Fn bad=======

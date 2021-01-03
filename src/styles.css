@@ -1,8 +1,9 @@
-@import '~material-design-icons/iconfont/material-icons.css';
+/* @import '~material-design-icons/iconfont/material-icons.css'; */
 /* для npm подключения в css */
 
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -129,6 +130,18 @@ img {
 }
 .btn:hover,
 .btn:focus {
-  color: rgb(39, 18, 224);
+  color: #007bff;
   background-color: rgb(114, 226, 39);
+}
+#arrowTop {
+  height: 34px;
+  width: 34px;
+  color: #007bff;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+}
+#arrowTop .material-icons {
+  font-size: 44px;
 }

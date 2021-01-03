@@ -10,13 +10,16 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <!-- <link
+    <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
-    /> -->
+    />
   </head>
   <body>
     <div class="container">
+      <div id="arrowTop" hidden>
+        <i class="material-icons">arrow_circle_up</i>
+      </div>
       <h1 class="search-title">Maybe do you want search photo?</h1>
       <form class="search-form" id="search-form">
         <input
@@ -27,9 +30,9 @@
           placeholder="Search images..."
         />
       </form>
-      <div class="spinner-border is-hidden" role="status">
+      <!-- <div class="spinner-border is-hidden" role="status">
         <span class="sr-only">Loading...</span>
-      </div>
+      </div> -->
       <ul class="gallery"></ul>
 
       <button class="btn btn-primary is-hidden" type="button">
@@ -38,8 +41,7 @@
           role="status"
           aria-hidden="true"
         ></span>
-        <!-- <span class="sr-only">Load more</span> -->
-        <span class="loadSpan">Load more</span>
+        <span class="loadSpan sr-only">Load more</span>
       </button>
     </div>
   </body>

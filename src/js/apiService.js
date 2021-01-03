@@ -1,62 +1,50 @@
 import refs from './refs';
 import photoCardTemplate from '../templates/photoCard.hbs';
-
 import toastr from 'toastr';
 import options from './toastr.options';
 import 'toastr/build/toastr.min.css';
+// import ScrollToTop from 'react-scroll-to-top';
 import axios from 'axios';
 toastr.options = options;
 
 const baseURL = 'https://pixabay.com/api';
 const key = '19717497-dac00bc00e9230cbef98621a0';
-const perPage = 12; //12 по дз(проверяем на 5 и 9,200)
+const perPage = 9; //12 по дз(проверяем на 5 и 9,200)
 
 export default {
   searchQuery: '',
   page: 1,
 
   fetchImages() {
-    // console.log(this.page);
     if (this.searchQuery === '') {
-      refs.galleryList.innerHTML = '';
       toastr.warning('Please enter a more specific querry!', 'Warning!');
-      refs.spinner.classList.add('is-hidden');
       refs.btnLoadMore.classList.add('is-hidden');
       return;
     }
-
     const url = `${baseURL}/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=${perPage}&key=${key}`;
     return fetch(url)
       .then(res => res.json())
       .then(data => {
         // console.log(data); // проверитть на поиск 'asa' и 'df' (всего 10 и 6 элементов)
         const total = data.totalHits;
-        // console.log(total);
         data = data.hits;
-
         if (data.length === 0 && this.page === 1) {
-          refs.galleryList.innerHTML = '';
-          // console.log('is-hidden data=0');
           toastr.warning('Please enter a more specific querry!', 'Warning!');
-          refs.spinner.classList.add('is-hidden');
           refs.btnLoadMore.classList.add('is-hidden');
-          // console.log('is-hidden data=0',);
           return;
         }
         if (data.length > 0) {
-          // refs.galleryList.innerHTML = '';
-          refs.spinner.classList.add('is-hidden');
+          refs.spinneBtn.classList.add('is-hidden');
           const markup = photoCardTemplate(data);
           refs.galleryList.insertAdjacentHTML('beforeend', markup);
-          refs.btnLoadMore.classList.remove('is-hidden');
           this.page += 1;
+          refs.spanBtnLoadMore.classList.remove('sr-only');
 
           if (
             data.length < perPage ||
             total === data.length * (this.page - 1)
           ) {
-            // console.log('(data.length < perPage || data.length !== 0)');
-            refs.btnLoadMore.classList.add('is-hidden'); //
+            refs.btnLoadMore.classList.add('is-hidden');
           }
           window.scrollTo({
             top: document.documentElement.offsetHeight, //прокрутка на всю длину документа
@@ -67,8 +55,6 @@ export default {
         }
       })
       .catch(error => {
-        refs.spinner.classList.add('is-hidden');
-        //   console.log('is-hidden catch');
         refs.galleryList.innerHTML = '';
         toastr.error('No connection to server!', 'Error!');
         console.log('ERROR!: ', error.message);

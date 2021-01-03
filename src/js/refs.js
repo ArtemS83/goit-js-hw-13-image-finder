@@ -5,6 +5,7 @@ const refs = {
   btnLoadMore: document.querySelector('.btn-primary'),
   spinneBtn: document.querySelector('.spinner-border-sm'),
   spanBtnLoadMore: document.querySelector('.loadSpan'),
+  arrowTop: document.querySelector('#arrowTop'),
 };
 
 export default refs;
