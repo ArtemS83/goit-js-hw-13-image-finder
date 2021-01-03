@@ -6,6 +6,7 @@ const refs = {
   spinneBtn: document.querySelector('.spinner-border-sm'),
   spanBtnLoadMore: document.querySelector('.loadSpan'),
   arrowTop: document.querySelector('#arrowTop'),
+  // largeImg: document.querySelector('.photo-card img'),
 };
 
 export default refs;
