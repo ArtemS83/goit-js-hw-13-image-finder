@@ -3,13 +3,12 @@ import photoCardTemplate from '../templates/photoCard.hbs';
 import toastr from 'toastr';
 import options from './toastr.options';
 import 'toastr/build/toastr.min.css';
-// import ScrollToTop from 'react-scroll-to-top';
 import axios from 'axios';
 toastr.options = options;
 
 const baseURL = 'https://pixabay.com/api';
 const key = '19717497-dac00bc00e9230cbef98621a0';
-const perPage = 9; //12 по дз(проверяем на 5 и 9,200)
+const perPage = 12; //12 по дз(проверяем на 5 и 9,200)
 
 export default {
   searchQuery: '',
@@ -46,19 +45,29 @@ export default {
           ) {
             refs.btnLoadMore.classList.add('is-hidden');
           }
-          window.scrollTo({
-            top: document.documentElement.offsetHeight, //прокрутка на всю длину документа
-            behavior: 'smooth',
-          });
 
+          if (this.page > 2) {
+            const scrollHeight =
+              document.documentElement.clientHeight +
+              document.documentElement.scrollTop; //прокрутка ровно на один экран(высота дисплея+высота от начала до дисплея)
+            window.scrollTo({
+              // top: document.documentElement.offsetHeight, //прокрутка на всю длину документа
+              top: scrollHeight,
+              behavior: 'smooth', // можно убрать,подключено на html
+            });
+          }
           return;
         }
       })
       .catch(error => {
         refs.galleryList.innerHTML = '';
+        refs.btnLoadMore.classList.add('is-hidden');
         toastr.error('No connection to server!', 'Error!');
         console.log('ERROR!: ', error.message);
       });
+    // .finally(data => {
+    //   console.log('finally', data);
+    // });
   },
   resetPage() {
     this.page = 1;
