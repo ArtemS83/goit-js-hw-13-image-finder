@@ -84,6 +84,7 @@ img {
 }
 .material-icons {
   margin-right: 6px;
+  cursor: pointer;
 }
 .material-icons:hover,
 .material-icons:focus {
@@ -121,6 +122,7 @@ img {
 .btn {
   display: block;
   margin: 0 auto;
+  cursor: pointer;
 }
 .is-hidden {
   display: none;
