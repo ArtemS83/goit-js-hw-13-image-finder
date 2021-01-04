@@ -18,6 +18,7 @@ body {
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   line-height: 1.5;
   background-color: rgb(150, 230, 233);
+  color: #007bff;
 }
 img {
   display: block;
@@ -41,8 +42,8 @@ img {
   font-style: normal;
 }
 .search-title {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-weight: 700;
   font-size: 26px;
   text-align: center;
@@ -65,12 +66,12 @@ img {
   display: flex;
   align-items: center;
   border-radius: 3px;
-  border: 2px solid #556666;
+  border: 2px solid #007bff;
   outline: none;
 }
 .input_search:hover,
 .input_search:focus {
-  border: 3px solid #6a9191;
+  border: 3px solid rgb(114, 226, 39);
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 1px 3px rgba(0, 0, 0, 0.12);
 }
@@ -119,10 +120,11 @@ img {
   height: 200px;
   object-fit: cover;
 }
-.spinner-border,
+/* .spinner-border, */
 .btn {
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
+
   cursor: pointer;
 }
 .is-hidden {
@@ -138,10 +140,17 @@ img {
   width: 34px;
   color: #007bff;
   position: fixed;
-  bottom: 30px;
+  bottom: 60px;
   right: 30px;
   cursor: pointer;
 }
 #arrowTop .material-icons {
   font-size: 44px;
+}
+.footer-div {
+  text-align: center;
+  width: auto;
+  height: 30px;
+  padding-top: 5px;
+  border-top: 1px solid #007bff;
 }
