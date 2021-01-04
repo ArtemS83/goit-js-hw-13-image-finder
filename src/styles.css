@@ -1,6 +1,6 @@
 /* @import '~material-design-icons/iconfont/material-icons.css'; */
 /* для npm подключения в css */
-
+@import '~basicLightbox/dist/basicLightbox.min.css'; /*для npm подключения в css */
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;

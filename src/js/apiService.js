@@ -38,7 +38,7 @@ export default {
           refs.galleryList.insertAdjacentHTML('beforeend', markup);
           this.page += 1;
           refs.spanBtnLoadMore.classList.remove('sr-only');
-          this.largeImg();
+          // this.largeImg();
           if (
             data.length < perPage ||
             total === data.length * (this.page - 1)
@@ -69,13 +69,13 @@ export default {
     //   console.log('finally');
     // });
   },
-  largeImg() {
-    const largeImgRef = document.querySelector('.photo-card img');
-    console.log(largeImgRef);
-    // refs.largeImg.addEventListener('click', () => {
-    //   console.log(refs.largeImg);
-    // });
-  },
+  // largeImg() {
+  //   const largeImgRef = document.querySelector('.photo-card img');
+  //   console.log(largeImgRef);
+  //   // refs.largeImg.addEventListener('click', () => {
+  //   //   console.log(refs.largeImg);
+  //   // });
+  // },
   resetPage() {
     this.page = 1;
   },

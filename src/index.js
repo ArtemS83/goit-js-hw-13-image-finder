@@ -7,7 +7,7 @@ import refs from './js/refs';
 import './js/arrowTop';
 import './js/basicLightbox';
 import axios from 'axios';
-
+// import * as basicLightbox from 'basiclightbox';
 refs.input.addEventListener('submit', onValueSearch);
 refs.btnLoadMore.addEventListener('click', onMoreSearch);
 
