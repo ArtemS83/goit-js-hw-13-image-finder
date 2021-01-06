@@ -1,13 +1,13 @@
 import './styles.css';
-// import '~material-design-icons/iconfont/material-icons.css'; /*для npm подключения*/
 console.log('Hello HW13');
-import { throttle } from 'throttle-debounce';
-import ImagesService from './js/apiService';
+// import { throttle } from 'throttle-debounce';
 import refs from './js/refs';
+import ImagesService from './js/apiService';
+// import startIntersectionObserver from './js/IntersectionObserver';
 import './js/arrowTop';
 import './js/basicLightbox';
-import axios from 'axios';
-// require('intersection-observer');
+// import axios from 'axios';
+
 refs.input.addEventListener('submit', onValueSearch);
 refs.btnLoadMore.addEventListener('click', onMoreSearch);
 
@@ -17,41 +17,13 @@ function onValueSearch(e) {
   refs.btnLoadMore.classList.remove('is-hidden');
   ImagesService.query = e.target[0].value.trim();
   ImagesService.resetPage();
-  startObserver();
-  refs.footer.classList.add('is-hidden');
+  refs.paginationContainer.classList.add('is-hidden');
   onMoreSearch();
 }
-function onMoreSearch() {
+export default function onMoreSearch() {
+  ImagesService.ScrollTo = true;
   ImagesService.fetchImages();
-  refs.spinneBtn.classList.remove('is-hidden'); //спинер на кнопке 'Load more'
-  refs.spanBtnLoadMore.classList.add('sr-only');
-}
-
-//====================Intersection Observer============
-
-// window.onload = () => {};// ждем полной загрузки страницы
-const optionsOi = {
-  // root: null, // родитель целевого элемента - область просмотра
-  // rootMargin: '50px', // расстояние до елемента
-  threshold: 0.9, // на сколько показан елемент-(на 1 не всегда срабатывал!!!!)
-};
-
-const onEntry = (entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      console.log(entry.target.textContent);
-      onMoreSearch();
-      if (ImagesService.btnLoadMoreHide) {
-        observer.disconnect(); // отключает после первого события, когда уже не нужен
-      }
-    }
-  });
-};
-const io = new IntersectionObserver(onEntry, optionsOi);
-
-function startObserver() {
-  io.observe(refs.footer);
-  ImagesService.btnLoadMoreHide = false;
+  refs.footer.classList.add('is-hidden');
 }
 
 //========throttle======

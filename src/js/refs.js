@@ -7,6 +7,7 @@ const refs = {
   spanBtnLoadMore: document.querySelector('.loadSpan'),
   arrowTop: document.querySelector('#arrowTop'),
   footer: document.querySelector('.footer-div'),
+  paginationContainer: document.querySelector('#pagination'),
 };
 
 export default refs;
